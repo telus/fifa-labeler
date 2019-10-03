@@ -1,5 +1,5 @@
 {
-  "name": "labeler",
+  "name": "fifa-labeler",
   "version": "2.0.0",
   "private": true,
   "description": "Labels pull requests by files altered",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/labeler.git"
+    "url": "git+https://github.com/telus/fifa-labeler.git"
   },
   "keywords": [
     "actions",
