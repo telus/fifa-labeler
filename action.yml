@@ -1,6 +1,6 @@
-name: 'Pull Request Labeler'
-description: 'Label pull requests by files altered'
-author: 'GitHub'
+name: 'FIFA project Pull Request Labeler'
+description: 'Label pull requests by files altered and base branch'
+author: 'IOF G&E DevOps Team'
 inputs: 
   repo-token:
     description: 'The GITHUB_TOKEN secret'
