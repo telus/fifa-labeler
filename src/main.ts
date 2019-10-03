@@ -14,6 +14,15 @@ async function run() {
       return;
     }
 
+    const prBase = getPrBase();
+    if (!prBase) {
+      console.log('Could not get pull request base branch from context, exiting');
+      return;
+    }
+    else {
+      core.debug(`Base branch is #${prBase}`);
+    }
+
     const client = new github.GitHub(token);
 
     core.debug(`fetching changed files for pr #${prNumber}`);
@@ -47,6 +56,15 @@ function getPrNumber(): number | undefined {
   }
 
   return pullRequest.number;
+}
+
+function getPrBase(): string[] | undefined {
+  const pullRequest = github.context.payload.pull_request;
+  if (!pullRequest) {
+    return undefined;
+  }
+
+  return pullRequest.base.ref;
 }
 
 async function getChangedFiles(
