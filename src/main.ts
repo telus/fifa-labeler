@@ -18,7 +18,7 @@ async function run() {
     const prBase = getPrBase();
     if (!prBase) {
       console.log(
-        "Could not get pull request base branch from context, exiting"
+        "Could not get pull request base branch from context, exiting."
       );
       return;
     } else {
