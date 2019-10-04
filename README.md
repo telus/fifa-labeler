@@ -3,7 +3,7 @@
 Pull request labeler triages PRs based on the paths that are modified in the PR and the base branch.
 
 To use, create a `.github/labeler.yml` file with a list of labels and [minimatch](https://github.com/isaacs/minimatch) 
-globs to match to apply the label. 
+globs to match to apply the label and/or branch. 
 
 Example:
 ```
