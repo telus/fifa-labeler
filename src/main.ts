@@ -118,11 +118,9 @@ async function fetchContent(
   if (!response.data.content) {
     console.log("response.data.content does not exist");
     return "";
-  }
-  else {
+  } else {
     return Buffer.from(response.data.content, "base64").toString();
   }
-  
 }
 
 function getLabelGlobMapFromObject(configObject: any): Map<string, string[]> {
