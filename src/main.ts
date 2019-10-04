@@ -116,7 +116,6 @@ async function fetchContent(
     ref: github.context.sha
   });
 
-
   if (!response.data.content) {
     console.log("response.data.content does not exist");
     return "";
