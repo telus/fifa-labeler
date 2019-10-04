@@ -22,7 +22,9 @@ async function run() {
       );
       return;
     } else {
+      console.log(`Base branch is #${prBase}`);
       core.debug(`Base branch is #${prBase}`);
+
     }
 
     const client = new github.GitHub(token);
