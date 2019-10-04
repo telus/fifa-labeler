@@ -22,7 +22,7 @@ async function run() {
       );
       return;
     } else {
-      console.setOutput("basebranch", `Base branch is #${prBase}`);
+      core.setOutput("basebranch", `Base branch is #${prBase}`);
       core.debug(`Base branch is #${prBase}`);
     }
 
