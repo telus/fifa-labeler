@@ -7,6 +7,7 @@ async function run() {
   try {
     const token = core.getInput("repo-token", { required: true });
     const configPath = core.getInput("configuration-path", { required: true });
+    console.log("running");
 
     const prNumber = getPrNumber();
     if (!prNumber) {
