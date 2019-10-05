@@ -6,8 +6,12 @@ import { Minimatch } from "minimatch";
 async function run() {
   try {
     const token = core.getInput("repo-token", { required: true });
-    const pathConfigPath = core.getInput("path-label-config-path", { required: true });
-    const branchConfigPath = core.getInput("branch-label-config-path", { required: true });	    
+    const pathConfigPath = core.getInput("path-label-config-path", {
+      required: true
+    });
+    const branchConfigPath = core.getInput("branch-label-config-path", {
+      required: true
+    });
     console.log("running");
 
     const prNumber = getPrNumber();
