@@ -4,9 +4,12 @@ author: 'IOFGE FIFA DevOps Team'
 inputs: 
   repo-token:
     description: 'The GITHUB_TOKEN secret'
-  configuration-path:
-    description: 'The path for the label configurations'
-    default: '.github/labeler.yml'
+  path-label-config-path:
+    description: 'The path for the configuration for path based labels'
+    default: '.github/path-labels.yml'
+  branch-label-config-path:
+    description: 'The path for the configuration for branch based labels'
+    default: '.github/branch-labels.yml'
 outputs:
   basebranch:
     description: 'The ref of the base branch for the merge'

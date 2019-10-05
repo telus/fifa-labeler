@@ -6,7 +6,8 @@ import { Minimatch } from "minimatch";
 async function run() {
   try {
     const token = core.getInput("repo-token", { required: true });
-    const configPath = core.getInput("configuration-path", { required: true });
+    const pathConfigPath = core.getInput("path-label-config-path", { required: true });
+    const branchConfigPath = core.getInput("branch-label-config-path", { required: true });	    
     console.log("running");
 
     const prNumber = getPrNumber();
@@ -32,7 +33,7 @@ async function run() {
     const changedFiles: string[] = await getChangedFiles(client, prNumber);
     const labelGlobs: Map<string, string[]> = await getLabelGlobs(
       client,
-      configPath
+      pathConfigPath
     );
 
     const labels: string[] = [];
