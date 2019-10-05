@@ -35,22 +35,36 @@ async function run() {
 
     core.debug(`fetching changed files for pr #${prNumber}`);
     const changedFiles: string[] = await getChangedFiles(client, prNumber);
-    const labelGlobs: Map<string, string[]> = await getLabelGlobs(
+    const pathLabelGlobs: Map<string, string[]> = await getLabelGlobs(
       client,
       pathConfigPath
     );
+    const branchLabelGlobs: Map<string, string[]> = await getLabelGlobs(
+      client,
+      branchConfigPath
+    );
 
     const labels: string[] = [];
-    for (const [label, globs] of labelGlobs.entries()) {
+    for (const [label, globs] of pathLabelGlobs.entries()) {
       core.debug(`processing ${label}`);
       if (checkGlobs(changedFiles, globs)) {
         labels.push(label);
       }
     }
-
     if (labels.length > 0) {
       await addLabels(client, prNumber, labels);
     }
+
+    for (const [label, globs] of branchLabelGlobs.entries()) {
+      core.debug(`processing ${label}`);
+      if (checkGlobs([prBase], globs)) {
+        labels.push(label);
+      }
+    }
+    if (labels.length > 0) {
+      await addLabels(client, prNumber, labels);
+    }
+
   } catch (error) {
     core.error(error);
     core.setFailed(error.message);
@@ -66,7 +80,7 @@ function getPrNumber(): number | undefined {
   return pullRequest.number;
 }
 
-function getPrBase(): string[] | undefined {
+function getPrBase(): string | undefined {
   const pullRequest = github.context.payload.pull_request;
   if (!pullRequest) {
     return undefined;
