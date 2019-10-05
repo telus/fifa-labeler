@@ -64,7 +64,6 @@ async function run() {
     if (labels.length > 0) {
       await addLabels(client, prNumber, labels);
     }
-
   } catch (error) {
     core.error(error);
     core.setFailed(error.message);
