@@ -1,0 +1,6 @@
+site_name: fifa-labeler
+site_description: Documentation for fifa-labeler
+plugins:
+  - techdocs-core
+nav:
+  - Contributors: contributors.md
